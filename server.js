@@ -35,7 +35,7 @@ app.use(
 
 // mounted routers
 app.use('/', indexRouter)
-app.use('/', flightsRouter)
+app.use('/flights', flightsRouter)
 
 
 // catch 404 and forward to error handler

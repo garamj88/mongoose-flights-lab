@@ -6,7 +6,7 @@ function index(req, res) {
     res.render('flights/index', {
       error: error,
       flights: flights,
-      title: 'All flights'
+      title: 'All Flights'
     })
   })
 }
