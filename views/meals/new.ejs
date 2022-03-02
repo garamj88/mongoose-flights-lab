@@ -1,0 +1,23 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/meals/new.css" />
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <p>
+    Please only add a meal that does not exist in this dropdown:
+    <select>
+      <% meals.forEach(meal => { %>
+        <option><%= meal.menu %></option>
+      <% }) %>
+    </select>
+  </p>
+  <form id="add-meal-form" action="/meals" method="post">
+    <label for="menu-input">Meal:</label>
+    <input type="text" name="menu" id="menu-input">
+    <button type="submit">Add Meal</button>
+  </form>
+</main>
+
+  
+  <%- include('../partials/footer') %>
