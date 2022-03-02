@@ -9,7 +9,6 @@ import('./config/database.js')
 
 // import routers
 import { router as indexRouter } from './routes/index.js'
-import { router as usersRouter } from './routes/users.js'
 
 // set up app
 const app = express()
@@ -33,7 +32,6 @@ app.use(
 
 // mounted routers
 app.use('/', indexRouter)
-app.use('/users', usersRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
