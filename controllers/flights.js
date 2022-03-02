@@ -2,7 +2,6 @@ import { Flight } from "../models/flight.js"
 
 function index(req, res) {
   Flight.find({}, function(error, flights) {
-    console.log(error)
     res.render('flights/index', {
       error: error,
       flights: flights,
@@ -25,8 +24,28 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  Flight.findById(req.params.id, function (err, flight) {
+    res.render('flights/show', { 
+      title: 'Flight Detail', 
+      flight: flight
+    })
+  })
+}
+
+function createTicket(req, res) {
+  Flight.findById(req.params.id, function(err, flight) {
+    flight.tickets.push(req.body)
+    flight.save(function(err) {
+      res.redirect(`/flights/${flight._id}`)
+    })
+  })
+}
+
 export {
   index,
   newFlight as new,
-  create
+  create,
+  show,
+  createTicket
 }
