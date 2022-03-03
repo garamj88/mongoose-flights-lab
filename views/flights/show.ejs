@@ -44,7 +44,7 @@
     <table>
       <thead>
         <tr>
-          <th>Seat</th>
+          <th>Seat No.</th>
           <th>Price</th>
         </tr>
       </thead>
@@ -52,7 +52,7 @@
         <% flight.tickets.forEach(ticket => { %>
           <tr>
             <td><%= ticket.seat %></td>
-            <td>$ <%= ticket.price %>.00</td>
+            <td>$ <%= ticket.price %></td>
           </tr>
         <% }) %>
       </tbody>
@@ -60,6 +60,23 @@
   <% } else { %>
     <h3>No Tickets Yet</h3>
   <% } %>
+
+  <form id="add-meal-to-flight" action="/flights/<%= flight._id %>/meals" method="post">
+    <select name="mealId">
+      <% meals.forEach(meal => { %>
+        <option value="<%= meal._id %>"><%= meal.name %></option>
+      <% }) %>
+    </select>
+    <button type="submit">Add to Meals</button>
+  </form>
+
+  <h2>Meals</h2>
+  <ul>
+    <% flight.meals.forEach(meal => { %>
+      <li><%= meal.name %></li>
+    <% }) %>
+  </ul>
+
 </main>
   
 <%- include('../partials/footer') %>

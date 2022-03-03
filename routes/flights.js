@@ -18,6 +18,8 @@ router.post('/', flightsCtrl.create)
 // POST - localhost:3000/flights
 router.post('/:id/tickets', flightsCtrl.createTicket)
 
+// POST - localhost:3000/flights/:id/meals
+router.post('/:id/meals', flightsCtrl.addToMeals)
 
 export {
   router

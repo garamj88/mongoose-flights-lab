@@ -5,19 +5,20 @@
 <main>
   <h1><%= title %></h1>
   <p>
-    Please only add a meal that does not exist in this dropdown:
-    <select>
-      <% meals.forEach(meal => { %>
-        <option><%= meal.menu %></option>
-      <% }) %>
-    </select>
+    Please only add a meal that does not exist in the below list:
   </p>
   <form id="add-meal-form" action="/meals" method="post">
-    <label for="menu-input">Meal:</label>
-    <input type="text" name="menu" id="menu-input">
+    <label for="name-input">Meal:</label>
+    <input type="text" name="name" id="name-input">
     <button type="submit">Add Meal</button>
   </form>
-</main>
 
+  <ul>
+    <% meals.forEach(meal => { %>
+      <li><%= meal.name %></li>
+    <% }) %>
+  </ul>
+
+</main>
 
   <%- include('../partials/footer') %>
