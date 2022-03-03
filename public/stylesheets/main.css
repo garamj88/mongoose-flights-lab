@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  background-color: gray;
+  background-color: white;
   /* Use a system font, if none are available use an available sans-sarif font */
   margin: 0;
   color: #424748;
@@ -34,7 +34,7 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #b8c0c2;
+  background-color: lightgray;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -61,7 +61,7 @@ nav > a:visited {
 
 nav > a:hover {
   color: white;
-  background-color: #424748;
+  background-color: #8b8b8b;
 }
 
 nav > a.active {

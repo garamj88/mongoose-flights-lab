@@ -36,7 +36,7 @@
   <label for="seat-input">Seat: </label>
   <input type="text" name="seat" required pattern="[A-F][1-9]\d?" id="seat-input" placeholder="A1 - F99" />
   <label for="price-input">Price: </label>
-  <input type="number" name="price" id="price-input" />
+  <input type="number" name="price" min="0" step="0.01" id="price-input" placeholder="$0.00"/>
   <button type="submit">Add Ticket</button>
   </form>
 
@@ -52,7 +52,7 @@
         <% flight.tickets.forEach(ticket => { %>
           <tr>
             <td><%= ticket.seat %></td>
-            <td>$ <%= ticket.price %></td>
+            <td>$ <%= ticket.price.toFixed(2) %></td>
           </tr>
         <% }) %>
       </tbody>

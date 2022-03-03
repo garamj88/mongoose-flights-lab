@@ -3,16 +3,18 @@ import mongoose from "mongoose"
 
 const Schema = mongoose.Schema
 
-const ticketSchema = new Schema ({
+const ticketSchema = new Schema({
   seat: {
     type: String,
-    match: /[A-F][1-9]\d?/},
+    match: /[A-F][1-9]\d?/
+  },
   price: {
     type: Number,
-    min: 0}
+    min: 0
+  }
 })
 
-const flightSchema = new Schema ({
+const flightSchema = new Schema({
   airline: {
     type: String,
     enum: ['American', 'Southwest', 'United']
@@ -29,13 +31,12 @@ const flightSchema = new Schema ({
   },
   departs: {
     type: Date,
-    default: function() {
-      logDate = new Date()
-      return logDate.setFullYear(logDate.getFullYear() + 1)
-    }
-  },
+    default: Date.now() + 365 * 24 * 60 * 60 * 1000
+    },
   tickets: [ticketSchema],
   meals: [{ type: Schema.Types.ObjectId, ref: "Meal" }]
+}, {
+  timestamps: true
 })
 
 const Flight = mongoose.model('Flight', flightSchema)
