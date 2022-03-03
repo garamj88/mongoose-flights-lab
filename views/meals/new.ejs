@@ -4,15 +4,11 @@
 
 <main>
   <h1><%= title %></h1>
-  <p>
-    Please only add a meal that does not exist in the below list:
-  </p>
   <form id="add-meal-form" action="/meals" method="post">
-    <label for="name-input">Meal:</label>
+    <label for="name-input">Please add a meal not in the below list:</label>
     <input type="text" name="name" id="name-input">
     <button type="submit">Add Meal</button>
   </form>
-
   <ul>
     <% meals.forEach(meal => { %>
       <li><%= meal.name %></li>
